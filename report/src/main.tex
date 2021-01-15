@@ -1,0 +1,91 @@
+\input{./../common/commandsFile}
+
+\begin{document}
+
+%TITLE PAGE
+
+\begin{titlepage}
+
+%LOGO
+
+{\begin{table}[t!]
+\centering
+\begin{tabu} to \textwidth { X[1.3,r,p] X[1.7,l,p] }
+\textcolor{Blue}
+{\textbf{\small{AXI Project byColombi, Corbetta, Consonni}}} & \includegraphics[scale=0.5]{./../../img/Images/PolimiLogo}
+\end{tabu}
+\end{table}}~\\ [7cm]
+
+%TITLE
+
+\begin{flushleft}
+
+%Replace the text string with your title
+{\textcolor{Blue}{\textbf{\Huge{AXI Project}}}} \\ [1cm]
+
+\end{flushleft}
+
+\end{titlepage}
+
+%Define deliverable specific info
+%Replace cell contents where needed
+\begin{table}[h!]
+\begin{tabu} to \textwidth { X[0.3,r,p] X[0.7,l,p] }
+\hline
+
+\textbf{Deliverable:} & Report\\
+\textbf{Title:} & Project Report \\
+\textbf{Authors:} & Marco Colombi, \\ & Giorgio Corbetta, Cesare Consonni \\
+\textbf{Version:} & 0.0 \\
+\textbf{Date:} & 15-January-2021 \\
+\textbf{Download page:} & $https://github.com/CesareConsonni/ES_20-21-CCC$ \\
+\hline
+\end{tabu}
+\end{table}
+
+
+
+
+\setcounter{page}{2}
+
+
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\newpage
+\addcontentsline{toc}{section}{Table of Contents}
+\tableofcontents
+\newpage
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{\color{Blue}{\section{Axi Protocol}}}
+\label{sect:introduction}
+\input{Files/introduction}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{\color{Blue}{\section{Our Design}}}
+\label{sect:design}
+\input{Files/design}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{\color{Blue}{\section{Reading The OUTPUT}}}
+\label{sect:uart}
+\input{Files/uart}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+{\color{Blue}{\section{Differences}}}
+\label{sect:diff}
+\input{Files/diff}
+
+\clearpage
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{plain}
+\bibliography{main}
+%------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+\end{document}
