@@ -1,1 +1,11 @@
-pippo
+In this section we will describe briefly the scope of the project and give a brief overview of the AXI protocol.
+
+{\color{Blue}{\subsection{Project Scope}}}
+
+The scope of the project is to understand how works the AXI communication protocol, and test our knowledge by designing an "AXI interconnect" component and putting it inside the processor and see if everything works.
+
+{\color{Blue}{\subsection{AXI Protocol}}}
+
+The AXI protocol is a fast point to point protocol multimasters multi slave with two bus dedicated to data and addresses, and for each bus there is an handshake protocol to drive the communiation. The AXI interconnect has the due to bind the master to the Server it needs to communicate with.
+
+It's worth to spend here few words on how the fact that AXI offers the possibility to have different clock regions, but for our application it's not needed.
