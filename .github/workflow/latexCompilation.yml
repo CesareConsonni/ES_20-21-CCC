@@ -24,8 +24,7 @@ jobs:
       - name: Moving files
         run: |
           mkdir -p deliverables
-          cp src/RASD/main.pdf deliverables/RASD.pdf
-          cp src/DD/main.pdf deliverables/DD.pdf
+          cp report/src/main.pdf deliverables/main.pdf
 
 
       - name: Push Release
