@@ -1,0 +1,40 @@
+Handshake driven communication:
+Handshake on address
+Address communication
+Handshake on data
+Data communication
+Handshake  on response (only WRITE)
+Response communication (only WRITE)
+
+WRITE SIGNALS:
+
+AW group:
+AWADDR[31:0] //where the master want to write
+AWVALID[0:0] //the address line is valid
+AWPROT[2:0]//access permissions
+AWREADY[0:0]//the slave is ready to recieve the address
+
+W group:
+WDATA[31:0]//what the master want to write
+WSTRB[3:0]//which bytes of the WDATA are meaningful
+WVALID[0:0]//the data line is valid
+WREADY[0:0]//the slave is ready to recieve the data
+
+B group:
+BREADY[0:0]//the master is ready to recieve the response
+BRESP[1:0]//slave’s response about the operation
+BVALID[0:0]//the response line is valid
+
+READ SIGNALS:
+
+AR group:
+ARADDR[31:0]// where the master want to read
+ARVALID[0:0] //the address line is valid
+ARPROT[2:0]//access permissions
+ARREADY[0:0 ]//the slave is ready to recieve the address
+
+R group:
+RREADY[0:0]//the master is ready to recieve the data
+RDATA[31:0]//the data requested by the master
+RVALID[0:0]//the data line is valid
+RRESP[1:0]//slave’s response about the operation
