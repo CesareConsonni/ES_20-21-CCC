@@ -1,5 +1,7 @@
 \input{./../common/commandsFile}
 
+\addbibresource{main.bib}
+
 \begin{document}
 
 %TITLE PAGE
@@ -57,8 +59,6 @@
 \setcounter{page}{2}
 
 
-
-
 %------------------------------------------------------------------------------------------------------------------------------------------------
 \newpage
 \addcontentsline{toc}{section}{Table of Contents}
@@ -91,9 +91,11 @@
 
 \clearpage
 \addcontentsline{toc}{section}{References}
-\bibliographystyle{plain}
-\bibliography{main}
+%\bibliographystyle{plain}
+
 %------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+\printbibliography
 
 \end{document}

@@ -15,6 +15,12 @@ jobs:
           root_file: 'main.tex'
           working_directory:  'report/src'
 
+      - name: Prepare bibliography
+        uses: actions/latex-biber-action@v2
+        with:
+          filename: 'report/src/main.tex'
+          output-directory: 'report/src'
+
       - name: Compile project document
         uses: xu-cheng/latex-action@master
         with:

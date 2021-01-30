@@ -10,12 +10,12 @@ multi masters and multi slaves components.
 
 Some {\bf key features} of the AXI4-Lite protocol are: {\bf separate address/control and data phases}, support for unaligned data transfers, using byte strobes, {\bf separate read and write data channels}, all {\bf transactions} are of burst {\bf length 1}, all data accesses are non-modifiable, non-bufferable and use the full {\bf width of the data bus} (the supported busses are the ones with width of {\bf 32-bit} (in our case) or 64-bit), exclusive accesses are not supported.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \includegraphics[width=1\textwidth]{./../../img/Images/axi_simple_read}
 \caption{AXI4 ({\bf non lite}) read}
 \label{simple_read}
 \end{figure}
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \includegraphics[width=1\textwidth]{./../../img/Images/axi_simple_write}
 \caption{AXI4 ({\bf non lite}) write}
 \label{simple_write}
@@ -67,4 +67,5 @@ Some {\bf key features} of the AXI4-Lite protocol are: {\bf separate address/con
 
 The scope of the project is to understand {\bf how works the AXI4-Lite} communication protocol, and {\bf design by ourselves} an "AXI interconnect" {\bf component} to {\bf replace} the real one inside the {\it Arm Cortex-M3 DesignStart FPGA-Xilinx edition} and {\bf observe} its {\bf behaviour} and the {\bf differences} between them.
 
-In our case there is only one master with multiple slaves (we don't need arbitrer) and there is no need for clock gating (because the clock is shared between all components)
+In our case there is only one master with multiple slaves (we don't need arbitrer) and there is no need for clock gating (because the clock is shared between all components).
+For more informations, see: \cite{vivadoGuide} \cite{AXISpecification}
