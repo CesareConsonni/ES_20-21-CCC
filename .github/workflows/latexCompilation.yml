@@ -18,7 +18,8 @@ jobs:
       - name: Prepare bibliography
         uses: julianahrens/latex-biber-action@v2
         with:
-          filename: 'report/src/main.tex'
+          filename: 'main.tex'
+          working_directory:  'report/src'
           output-directory: 'report/src'
 
       - name: Compile project document
