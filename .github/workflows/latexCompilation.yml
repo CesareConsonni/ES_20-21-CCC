@@ -6,39 +6,29 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      
       - name: Set up Git repository
         uses: actions/checkout@v1
-      
-      
-      - name: Set project dir environment var
-        run: echo "name=PROJECT_DIR::\"$GITHUB_WORKSPACE/report/src\"" >> $GITHUB_ENV
 
       - name: Prepare report
         uses: xu-cheng/latex-action@master
         with:
           root_file: 'main.tex'
-
-      - name: Prepare bibliography
-        uses: julianahrens/latex-biber-action@v2
-        with:
-          filename: 'main.tex'
+          working_directory:  'report/src'
 
       - name: Compile project document
         uses: xu-cheng/latex-action@master
         with:
           root_file: 'main.tex'
+          working_directory:  'report/src'
 
       - name: Moving files
         run: |
           mkdir -p deliverables
-          cp main.pdf ./../../deliverables/main.pdf
-
-
+          cp report/src/main.pdf deliverables/main.pdf
       - name: Push Release
         uses: s0/git-publish-subdir-action@master
         env:
           REPO: self
           BRANCH: deliverables
-          FOLDER : ./../../deliverables
+          FOLDER : deliverables
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
