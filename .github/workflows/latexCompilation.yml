@@ -16,7 +16,7 @@ jobs:
           working_directory:  'report/src'
 
       - name: Prepare bibliography
-        uses: actions/latex-biber-action@v2
+        uses: julianahrens/latex-biber-action@v2
         with:
           filename: 'report/src/main.tex'
           output-directory: 'report/src'
