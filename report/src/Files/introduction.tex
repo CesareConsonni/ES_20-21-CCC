@@ -11,7 +11,7 @@ multi masters and multi slaves components.
 Some {\bf key features} of the AXI4-Lite protocol are: {\bf separate address/control and data phases}, support for unaligned data transfers, using byte strobes, {\bf separate read and write data channels}, all {\bf transactions} are of burst {\bf length 1}, all data accesses are non-modifiable, non-bufferable and use the full {\bf width of the data bus} (the supported busses are the ones with width of {\bf 32-bit} (in our case) or 64-bit), exclusive accesses are not supported.
 \newline
 
-One very interesting feature of {\bf AXI4-Lite} is the {\bf Handshake protocol}, that is done {\bf for each data and address line} and that ensures the reading of the valid values. The signals involved are {\bf valid}, asserted by the sender when the data is valid, and {\bf ready}, asserted by the reciever when ready to recieve data.
+One very interesting feature of {\bf AXI4-Lite} is the {\bf Handshake protocol}, that is done {\bf for each data and address line} and that ensures the reading of the valid values. The signals involved are {\bf valid}, asserted by the sender when the data is valid, and {\bf ready}, asserted by the reciever when ready to recieve data. For more detailed informations, please see \cite[Section-A3.2.1]{AXISpecification}.
 
 \begin{figure}[!ht]
 \includegraphics[width=1\textwidth]{./../../img/Images/axi_simple_read}
