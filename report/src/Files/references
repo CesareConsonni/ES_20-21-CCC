@@ -4,4 +4,14 @@ https://beep.metid.polimi.it/web/2018-19-embedded-systems-1-william-fornaciari-/
 
 https://beep.metid.polimi.it/web/2018-19-embedded-systems-1-william-fornaciari-/documenti-e-media?p_p_id=20&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_20_struts_action=%2Fdocument_library%2Fview_file_entry&_20_redirect=https%3A%2F%2Fbeep.metid.polimi.it%2Fweb%2F2018-19-embedded-systems-1-william-fornaciari-%2Fdocumenti-e-media%3Fp_p_id%3D20%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26_20_entryEnd%3D20%26_20_displayStyle%3Dlist%26_20_viewEntries%3D1%26_20_viewFolders%3D1%26_20_expandFolder%3D0%26_20_folderStart%3D0%26_20_action%3DbrowseFolder%26_20_struts_action%3D%252Fdocument_library%252Fview%26_20_folderEnd%3D20%26_20_entryStart%3D0%26_20_folderId%3D197422972%26%23p_20&_20_fileEntryId=197423679&#p_20
 
+//todo: fixed the following reference in main.bib
 AXI Interconnect v2.1 LogiCORE IP Product Guide
+https://www.xilinx.com/support/documentation/ip_documentation/axi_interconnect/v2_1/pg059-axi-interconnect.pdf
+
+AXI UART LITE v2.0 LogiCORE IP Product guide
+https://www.xilinx.com/support/documentation/ip_documentation/axi_uartlite/v2_0/pg142-axi-uartlite.pdf
+
+Basics of UART communication
+https://beep.metid.polimi.it/web/2018-19-embedded-systems-1-william-fornaciari-/documenti-e-media?p_p_id=20&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_20_struts_action=%2Fdocument_library%2Fview_file_entry&_20_redirect=https%3A%2F%2Fbeep.metid.polimi.it%2Fweb%2F2018-19-embedded-systems-1-william-fornaciari-%2Fdocumenti-e-media%3Fp_p_id%3D20%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26_20_entryEnd%3D20%26_20_displayStyle%3Dlist%26_20_viewEntries%3D1%26_20_viewFolders%3D1%26_20_expandFolder%3D0%26_20_folderStart%3D0%26_20_action%3DbrowseFolder%26_20_struts_action%3D%252Fdocument_library%252Fview%26_20_folderEnd%3D20%26_20_entryStart%3D0%26_20_folderId%3D197060429%26%23p_20&_20_fileEntryId=197067490&#p_20
+or from the real source
+https://www.circuitbasics.com/basics-uart-communication
