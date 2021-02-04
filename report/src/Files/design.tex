@@ -1,8 +1,8 @@
-Here we will explain how we developed our AXI interconnect, first explaining how it works as a stand-alone component, and then how we inserted it into the Processor.
+Here we will explain how we developed our AXI interconnect, first showing how it works as a stand-alone component, and then how we inserted it into the Processor.
 \newline
 
 {\color{Blue}{\subsection{Block Design}}}
-In the figure \ref{HLBD} is reported the Block Diagram of the AXI interconnect we developed.
+In the figure \ref{HLBD} is reported the Block Diagram of the CCCAXI.
 \newline
 What we have implemented is essentially the {\bf crossbar}-related part inside the {\bf original AXI interconnection}: we specifically tailored our component to fit in the ARM Design Start, so {\bf single-master multiple-slaves architecture}, but with few changes the number of slaves can be increased/decreased.
 \newline
@@ -14,6 +14,12 @@ The FSM is in charge to follow the master in the write/read operations: it track
 \newline
 There are 2 types of error that we had considered: the ones raised by the slaves, which merely pass through the inteconnection and the ones raised if the address of the required slave is not mapped. The {\bf FSM} is also a {\bf supervisor} in case of the {\bf errors} in the {\bf addressing}: if the DECODER detects that the address provided by the master is not valid, the FSM will commute to an {\bf error-handling state} and allow the AXI to show an appropriate behaviour.
 \newline
+Here can be found the schemas of the read FSM \ref{readFSMSchema} \ref{readFSMSchemaTab} and to the write FSM \ref{writeFSMSchema} \ref{writeFSMSchemaTab}.
+\newline
+
+{\color{Blue}{\subsection{Integration and Testing}}}
+ We preferred to use the same enviroment of {\bf ARM Design Start} respect to the implementation of a fake memory to {\bf test the correctness} of our design: we make this choiche to make a {\bf comparison between the original wave diagram} and the {\bf one produced} with {\bf our AXI} in. Aside from our component, we have had to insert an {\bf ad hoc adapter} to match the {\bf full AXI3} interface exposed by the processor to the {\bf AXI4-Lite} implemented by us.
+\newline
 
 \begin{figure}[h]
   \includegraphics[width=0.9\textwidth, angle=0]{"./../../img/Images/highLevel.png"}
@@ -21,6 +27,62 @@ There are 2 types of error that we had considered: the ones raised by the slaves
   \label{HLBD}
 \end{figure}
 
-{\color{Blue}{\subsection{Integration and Testing}}}
- We preferred to use the same enviroment of {\bf ARM Design Start} respect to the implementation of a fake memory to {\bf test the correctness} of our design: we make this choiche to make a {\bf comparison between the original wave diagram} and the {\bf one produced} with {\bf our AXI} in. Aside from our component, we have had to insert an {\bf ad hoc adapter} to match the {\bf full AXI3} interface exposed by the processor to the {\bf AXI4-Lite} implemented by us.
-\newline
+\begin{figure}[!h]
+  \includegraphics[width=0.9\textwidth, angle=0]{"./../../img/Images/writeFSMSchema"}
+  \caption{high level write FSM schema}
+  \label{writeFSMSchema}
+\end{figure}
+
+\begin{table} [!h]
+  \centering
+  \begin{tabular} {c | c | c | c}
+    Current State	& Condition to Move &	decoderrst & Next State \\
+    \hline
+    \hline
+    RESET &	1	& 1	& IDLE \\
+    \hline
+    IDLE & \small {!decerr \&\& (ARVALID \&\& ARREADY) \&\& !(RVALID \&\& RREADY)} &	0	& ADDR HS \\
+    & \small{!decerr \&\& (ARVALID \&\& ARREADY) \&\& (RVALID \&\& RREADY)} &	0	& DATA HS \\
+    & RREADY \&\& decerr &	0 &	ERR STATE \\
+    \hline
+    ADDR HS	& RVALID \&\& RREADY &	0	& DATA HS \\
+    \hline
+    DATA HS	& RVALID == 0 &	1 &	IDLE \\
+    \hline
+    ERR STATE &	1	& 1 &	IDLE \\
+    \hline
+  \end{tabular}
+  \caption{Read FSM Schema. decerr is raised by decoder when address is not mapped}
+  \label{readFSMSchemaTab}
+\end{table}
+
+\begin{figure}[!h]
+  \includegraphics[width=0.9\textwidth, angle=0]{"./../../img/Images/readFSMSchema"}
+  \caption{high level read FSM schema}
+  \label{readFSMSchema}
+\end{figure}
+
+\begin{table} [!h]
+  \centering
+  \begin{tabular} {c | c | c | c}
+    Current State	& Condition to Move &	decoderrst & Next State \\
+    \hline
+    \hline
+    RESET &	1	& 1	& IDLE \\
+    \hline
+    IDLE & \small {!decerr \&\& (AWVALID \&\& AWREADY) \&\& !(WVALID \&\& WREADY)} &	0	& ADDR HS \\
+    & \small{!decerr \&\& (AWVALID \&\& AWREADY) \&\& (WVALID \&\& WREADY)} &	0	& DATA HS \\
+    & WREADY \&\& decerr &	0 &	ERR STATE \\
+    \hline
+    ADDR HS	& WVALID \&\& WREADY &	0	& DATA HS \\
+    \hline
+    DATA HS	& WVALID == 0 &	0 &	RESP HS \\
+    \hline
+    RESP HS	& 1 &	1	& IDLE \\
+    \hline
+    ERR STATE &	1	& 1 &	IDLE \\
+    \hline
+  \end{tabular}
+  \caption{Write FSM Schema. decerr is raised by decoder when address is not mapped}
+  \label{writeFSMSchemaTab}
+\end{table}

@@ -8,7 +8,7 @@ The {\bf communication} between Cortex M3 and uartlite is achieved using a {\bf 
 While the first 16 bits are the base address for the communication with uartlite (as shown in the address editor of the block design), the last 16 bits define the offset specified in the uartlite's product guide \cite[Chapter2.Register Space]{AXIUartguide}. In particular, the offset \verb+0x0004+ is used as FIFO queue for the data which should be transmitted on tx channel.
 \newline
 
-Looking at the documentation\cite{UartBasics} and at the IP custumization\ref{ip_config}, we can conclude that the {\bf transmission on tx channel} is defined by a {\bf sequence of 8 bits words}, enclosed by the {\bf starting bit 0} and {\bf the ending bit 1}, taken from the address \verb+0x4010_0004+ and {\bf read starting from the last significant bit}. Despite what described in the figure \ref{ip_config}, we found that the actual baudrate is about 115740 bit/sec (in according to the sampling period used 8.34 us for the tx channel in \textit{tb m3 for arty}).
+Looking at the documentation \cite{UartBasics} and at the IP custumization \ref{ip_config}, we can conclude that the {\bf transmission on tx channel} is defined by a {\bf sequence of 8 bits words}, enclosed by the {\bf starting bit 0} and {\bf the ending bit 1}, taken from the address \verb+0x4010_0004+ and {\bf read starting from the last significant bit}. Despite what described in the figure \ref{ip_config}, we found that the actual baudrate is about 115740 bit/sec (in according to the sampling period used 8.34 us for the tx channel in \textit{tb m3 for arty}).
 
 \begin{figure}[hb]
   \includegraphics{./../../img/Images/uartlite_ip_configuration_col}

@@ -2,7 +2,7 @@
 
 The AMBA AXI protocol supports high-performance, high-frequency system designs for communication between
 multi masters and multi slaves components.
-{\bf AXI4} is widely adopted, providing {\bf benefits} to {\bf productivity} (standardization simplifies the work of developers), {\bf flexibility} (there are slightly different protocols, eachone of them with their peculiarity), and {\bf availability} (it's an industrial standard, and there is a world wide community that uses and support it).
+{\bf AXI4} is widely adopted, providing {\bf benefits} to {\bf productivity} (standardization simplifies the work of developers), {\bf flexibility} (there are slightly different protocols, each one of them with their peculiarity), and {\bf availability} (it's an industrial standard, and there is a world wide community that uses and support it).
 \newline
 
 {\bf AXI4-Lite}, the procol that we studied, is a {\bf subset of AXI4} for communication with simpler control register style interfaces within components.
@@ -68,7 +68,7 @@ One of the features of {\bf AXI4-Lite} is the {\bf Handshake protocol}, that is 
 \newpage
 {\color{Blue}{\subsection{Project Scope}}}
 
-The scope of the project is to understand {\bf how works the AXI4-Lite} communication protocol, and {\bf design by ourselves} an "AXI interconnect" {\bf component} to {\bf replace} the real one inside the {\it Arm Cortex-M3 DesignStart FPGA-Xilinx edition} and {\bf observe} its {\bf behaviour} and the {\bf differences} between them.
+The scope of the project is to understand {\bf how the AXI4-Lite} communication protocol {\bf works}, and {\bf design by ourselves} an "AXI interconnect" {\bf component} (that we called {\bf CCCAXI}) to {\bf replace} the real one inside the {\it Arm Cortex-M3 DesignStart FPGA-Xilinx edition} and {\bf observe} its {\bf behaviour} and the {\bf differences} between them.
 
 In our case there is only one master with multiple slaves (we don't need arbitrer) and there is no need for clock gating (because the clock is shared between all components).
 For more informations, see: \cite{vivadoGuide} \cite{AXISpecification}
