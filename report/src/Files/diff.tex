@@ -1,10 +1,14 @@
 %introduction
 In this section we would like to analyse the main differences between the \textit{AXI interconnect} of the Cortex M3 example design and the \textit{AXI connect}, the module which we had implemented.
+\newline
+
 In particular, the first paragraph explains how the signals pass through the two AXI and the delays given by them, while the second focuses on some post-synthesis features of our communication component.
+\newline
 
 {\color{Blue}{\subsection{Time Differences}}}
 
 Comparing the two implementation and the simulations it is possible to notice that the handshake protocol provided by our configuration is faster than that achieved by the other.
+\newline
 This is because, whereas we design a set of multiplexers and demultiplexers to make the connection among master and slaves, the AXI of the example is composed by three main type of components:
 
 {\flushleft
@@ -21,6 +25,7 @@ The Figure \ref{RWXbar} shows an example of read and write operations of the \te
 }
 
 For more information about the \textit{AXI interconnection} and its components, see \cite{AXIInterconnectGuide}.
+\newline
 
 \begin{figure}[!hb]
   \includegraphics[width=\textwidth]{./../../img/Images/Read_Write_xbar}
